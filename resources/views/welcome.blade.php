@@ -10,23 +10,29 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-
+    
     <!-- Styles -->
-
+    
+    @vite(['resources/js/app.js'])
+    @vite('resources/css/app.css')
 </head>
 
-<body class="font-sans antialiased dark:bg-black dark:text-white/50">
+<body class="font-sans ">
     @auth
-        <h1>Hello you are connected</h1>
+    <div class="bg-gradient-to-r from-cyan-500 to-blue-500 bg-cover h-screen flex justify-center items-center flex-col">
+        <h1 class="text-white text-4xl font-bold">Hello you are connected!</h1>
 
         <form action="{{ route('logout') }}" method="post">
             @csrf
-            <button type="submit">Logout</button>
+            <button class="bg-white text-cyan-500 rounded-lg font-bold p-2" type="submit">Logout</button>
         </form>
+    </div>
     @endauth
 
     @guest
-        <h1>Hello you are  not authentificated </h1>
+    <div class="bg-gradient-to-r from-orange-500 to-red-500 bg-cover h-screen flex justify-center items-center">
+        <h1 class="text-white text-4xl font-bold">Hello you are  not authentificated :/</h1>
+    </div>
     @endguest
     
 
